@@ -2,10 +2,12 @@ package com.example.librarymanagermentservice.common.enums;
 
 import com.example.librarymanagermentservice.common.StatusCodeConstant;
 import com.example.librarymanagermentservice.common.StatusCodeStringConstant;
+import lombok.Getter;
 
 /**
  * Information of status code enum.
  */
+@Getter
 public enum StatusCodeEnum {
     OK(StatusCodeConstant.OK, StatusCodeStringConstant.OK),
     BAD_REQUEST(StatusCodeConstant.BAD_REQUEST, StatusCodeStringConstant.BAD_REQUEST),
@@ -20,13 +22,5 @@ public enum StatusCodeEnum {
     StatusCodeEnum(int code, String message) {
         this.code = code;
         this.message = message;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
     }
 }

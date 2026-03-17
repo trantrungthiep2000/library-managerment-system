@@ -1,4 +1,4 @@
-package com.example.librarymanagermentservice.dto;
+package com.example.librarymanagermentservice.dto.response;
 
 import com.example.librarymanagermentservice.common.StatusCodeConstant;
 import com.example.librarymanagermentservice.common.StatusCodeStringConstant;

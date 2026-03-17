@@ -2,7 +2,7 @@ package com.example.librarymanagermentservice.exception;
 
 import com.example.librarymanagermentservice.common.StatusCodeConstant;
 import com.example.librarymanagermentservice.common.StatusCodeStringConstant;
-import com.example.librarymanagermentservice.dto.ApiErrorResponseDTO;
+import com.example.librarymanagermentservice.dto.response.ApiErrorResponseDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;

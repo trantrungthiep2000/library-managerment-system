@@ -1,6 +1,6 @@
 package com.example.librarymanagermentservice.service;
 
-import com.example.librarymanagermentservice.dto.ApiSuccessResponseDTO;
+import com.example.librarymanagermentservice.dto.response.ApiSuccessResponseDTO;
 import com.example.librarymanagermentservice.dto.GenreDTO;
 import com.example.librarymanagermentservice.dto.request.GenreRequestDTO;
 import org.springframework.data.domain.Page;

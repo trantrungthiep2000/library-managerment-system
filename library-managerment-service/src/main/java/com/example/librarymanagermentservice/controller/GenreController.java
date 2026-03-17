@@ -1,7 +1,7 @@
 package com.example.librarymanagermentservice.controller;
 
 import com.example.librarymanagermentservice.common.ApiRoutesConstant;
-import com.example.librarymanagermentservice.dto.ApiSuccessResponseDTO;
+import com.example.librarymanagermentservice.dto.response.ApiSuccessResponseDTO;
 import com.example.librarymanagermentservice.dto.GenreDTO;
 import com.example.librarymanagermentservice.dto.request.GenreRequestDTO;
 import com.example.librarymanagermentservice.service.GenreService;
@@ -25,7 +25,7 @@ public class GenreController {
     private final GenreService genreService;
 
     /**
-     * create a genre.
+     * Create a genre.
      * @param requestDTO GenreRequestDTO.
      * @return GenreDTO.
      */
@@ -57,7 +57,7 @@ public class GenreController {
     }
 
     /**
-     * update a genre.
+     * Update a genre.
      * @param id Long.
      * @param requestDTO GenreRequestDTO.
      * @return GenreDTO.
