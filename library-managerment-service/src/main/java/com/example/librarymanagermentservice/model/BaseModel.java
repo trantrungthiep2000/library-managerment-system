@@ -1,6 +1,9 @@
 package com.example.librarymanagermentservice.model;
 
+import com.example.librarymanagermentservice.common.message.GenreMessageError;
+import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -16,8 +19,14 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class BaseModel {
     @CreationTimestamp
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
+
+    @NotNull(message = GenreMessageError.ACTIVE_IS_REQUIRED)
+    @Column(nullable = false)
+    private Boolean active = true;
 }

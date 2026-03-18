@@ -35,10 +35,6 @@ public class Genre extends BaseModel {
     @Min(value = 0, message = GenreMessageError.DISPLAY_ORDER_NOT_NEGATIVE)
     private Integer displayOrder = 0;
 
-    @NotNull(message = GenreMessageError.ACTIVE_IS_REQUIRED)
-    @Column(nullable = false)
-    private Boolean active = true;
-
     @ManyToOne
     private Genre parentGenre;
 
