@@ -114,12 +114,12 @@ public class BookServiceImpl implements BookService {
             throw new NotFoundException(BookMessageError.BOOK_NOT_FOUND);
         }
 
-        Boolean isCheckBookByISBN = bookRepository.existsByIsbn(requestDTO.getIsbn());
-        if (isCheckBookByISBN) {
+        Book bookByISBN = bookRepository.findByIsbn(requestDTO.getIsbn()).orElse(null);
+        if (bookByISBN != null && !bookByISBN.getId().equals(book.getId())) {
             throw new BadRequestException(BookMessageError.ISBN_USED);
         }
 
-        book = bookMapper.toEntity(requestDTO);
+        bookMapper.updateEntityToDTO(requestDTO, book);
         book.isAvailableCopiesValid();
         book = bookRepository.save(book);
         BookDTO bookDTO = bookMapper.toDTO(book);

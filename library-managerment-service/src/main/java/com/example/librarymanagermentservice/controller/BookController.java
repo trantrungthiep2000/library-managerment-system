@@ -107,7 +107,7 @@ public class BookController {
      * @param bookSearchRequestDTO BookSearchRequestDTO.
      * @return PageResponseDTO<BookDTO>.
      */
-    @GetMapping(ApiRoutesConstant.Book.SEARCH)
+    @PostMapping(ApiRoutesConstant.Book.SEARCH)
     public ResponseEntity<ApiSuccessResponseDTO<PageResponseDTO<BookDTO>>> searchBookWithFilters(@Valid @RequestBody BookSearchRequestDTO bookSearchRequestDTO) {
         var result = bookService.searchBookWithFilters(bookSearchRequestDTO);
         return ResponseEntity.ok(result);
