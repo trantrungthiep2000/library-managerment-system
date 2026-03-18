@@ -75,4 +75,22 @@ public class GenreMapper {
 
         return genre;
     }
+
+    /**
+     * Update entity to DTO.
+     * @param requestDTO GenreRequestDTO.
+     * @param genre Genre.
+     */
+    public void updateEntityToDTO(GenreRequestDTO requestDTO, Genre genre) {
+        genre.setCode(requestDTO.getCode());
+        genre.setName(requestDTO.getName());
+        genre.setDescription(requestDTO.getDescription());
+        genre.setDisplayOrder(requestDTO.getDisplayOrder());
+
+        if (requestDTO.getParentGenreId() != null)
+        {
+            Genre parentGenre = genreRepository.findById(requestDTO.getParentGenreId()).orElse(null);
+            genre.setParentGenre(parentGenre);
+        }
+    }
 }

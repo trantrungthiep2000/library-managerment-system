@@ -84,7 +84,7 @@ public class GenreServiceImpl implements GenreService {
             throw new NotFoundException(GenreMessageError.GENRE_NOT_FOUND);
         }
 
-        genre = genreMapper.toEntity(requestDTO);
+        genreMapper.updateEntityToDTO(requestDTO, genre);
         genre = genreRepository.save(genre);
         GenreDTO genreDTO = genreMapper.toDTO(genre);
         return new ApiSuccessResponseDTO<>(genreDTO);

@@ -83,4 +83,29 @@ public class BookMapper {
 
         return book;
     }
+
+    /**
+     * Update entity to DTO.
+     * @param requestDTO BookRequestDTO.
+     * @param book Book.
+     */
+    public void updateEntityToDTO(BookRequestDTO requestDTO, Book book) {
+        book.setIsbn(requestDTO.getIsbn());
+        book.setTitle(requestDTO.getTitle());
+        book.setAuthor(requestDTO.getAuthor());
+        book.setPublisher(requestDTO.getPublisher());
+        book.setPublishedDate(requestDTO.getPublishedDate());
+        book.setLanguage(requestDTO.getLanguage());
+        book.setPages(requestDTO.getPages());
+        book.setDescription(requestDTO.getDescription());
+        book.setTotalCopies(requestDTO.getTotalCopies());
+        book.setAvailableCopies(requestDTO.getAvailableCopies());
+        book.setPrice(requestDTO.getPrice());
+        book.setCoverImageUrl(requestDTO.getCoverImageUrl());
+
+        if (requestDTO.getGenreId() != null) {
+            Genre genre = genreRepository.findById(requestDTO.getGenreId()).orElse(null);
+            book.setGenre(genre);
+        }
+    }
 }

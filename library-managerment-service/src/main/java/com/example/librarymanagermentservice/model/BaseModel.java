@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class BaseModel {
     @CreationTimestamp
-    @Column(nullable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
