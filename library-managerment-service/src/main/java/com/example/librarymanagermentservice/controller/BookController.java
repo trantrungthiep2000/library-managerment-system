@@ -114,11 +114,11 @@ public class BookController {
     }
 
     /**
-     * Get book status.
+     * Get book state.
      * @return BookStatusResponseDTO.
      */
-    @GetMapping(ApiRoutesConstant.Book.STATUS)
-    public ResponseEntity<ApiSuccessResponseDTO<BookStatusResponseDTO>> getBookStatus() {
+    @GetMapping(ApiRoutesConstant.Book.STATE)
+    public ResponseEntity<ApiSuccessResponseDTO<BookStatusResponseDTO>> getBookState() {
         var totalActiveBooks = bookService.getTotalActiveBooks().getData();
         var totalAvailableBooks = bookService.getTotalAvailableBooks().getData();
         var bookStatusResponseDTO = new BookStatusResponseDTO(totalActiveBooks, totalAvailableBooks);

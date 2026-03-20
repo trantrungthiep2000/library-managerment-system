@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class BookSearchRequestDTO {
     private String searchTerm;
     private Long genreId;
-    private Boolean availableOnly;
+    private Boolean availableOnly = false;
     private Integer page = Constant.DEFAULT_PAGE;
     private Integer size = Constant.MAX_SIZE;
     private String sortBy = Constant.DEFAULT_SOFT_BY;

@@ -39,7 +39,7 @@ public class Genre extends BaseModel {
     private Genre parentGenre;
 
     @OneToMany(mappedBy = "parentGenre")
-    private List<Genre> subGenres = new ArrayList<Genre>();
+    private List<Genre> subGenres = new ArrayList<>();
 
 //    @OneToMany(mappedBy = "genre", cascade = CascadeType.PERSIST)
 //    private List<Book> books = new ArrayList<Book>();

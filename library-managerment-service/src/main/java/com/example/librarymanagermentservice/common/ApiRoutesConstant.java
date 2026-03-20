@@ -37,6 +37,19 @@ public final class ApiRoutesConstant {
         public static final String ISBN = "{ISBN}/book";
         public static final String HARD_DELETE = "{id}/hard";
         public static final String SEARCH = "search";
-        public static final String STATUS = "status";
+        public static final String STATE = "state";
+    }
+
+    /**
+     * Auth routes api
+     */
+    public static final class Auth {
+        private Auth() {}
+
+        public static final String Auth = API + V1 + "/auth";
+        public static final String Login = "login";
+        public static final String Signup = "signup";
+        public static final String FORGOT_PASSWORD = "forgot-password";
+        public static final String RESET_PASSWORD = "reset-password";
     }
 }
