@@ -27,7 +27,7 @@ public class AuthController {
      * @param requestDTO LoginRequestDTO.
      * @return AuthResponseDTO.
      */
-    @PostMapping(ApiRoutesConstant.Auth.Login)
+    @PostMapping(ApiRoutesConstant.Auth.LOGIN)
     public ResponseEntity<ApiSuccessResponseDTO<AuthResponseDTO>> login(@Valid @RequestBody LoginRequestDTO requestDTO) {
         var result = authService.login(requestDTO);
         return ResponseEntity.ok(result);
@@ -38,7 +38,7 @@ public class AuthController {
      * @param requestDTO UserRequestDTO.
      * @return AuthResponseDTO.
      */
-    @PostMapping(ApiRoutesConstant.Auth.Signup)
+    @PostMapping(ApiRoutesConstant.Auth.SIGNUP)
     public ResponseEntity<ApiSuccessResponseDTO<AuthResponseDTO>> signup(@Valid @RequestBody UserRequestDTO requestDTO) {
         var result = authService.signup(requestDTO);
         return ResponseEntity.ok(result);
