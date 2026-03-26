@@ -61,4 +61,15 @@ public final class ApiRoutesConstant {
         public static final String ADMIN_BOOK = API + V1 + "/admin/books";
         public static final String BULK = "bulk";
     }
+
+    /**
+     * User book routes api
+     */
+    public static final class User {
+        private User() {}
+
+        public static final String BASE_USER = API + V1;
+        public static final String PROFILE = "user/profile";
+        public static final String USERS = "admin/users";
+    }
 }
