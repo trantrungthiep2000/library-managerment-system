@@ -32,7 +32,6 @@ public final class ApiRoutesConstant {
         private Book() {}
 
         public static final String BOOKS = API + V1 + "/books";
-        public static final String BULK = "/bulk";
         public static final String ID = "{id}";
         public static final String ISBN = "{ISBN}/book";
         public static final String HARD_DELETE = "{id}/hard";
@@ -47,9 +46,30 @@ public final class ApiRoutesConstant {
         private Auth() {}
 
         public static final String Auth = API + V1 + "/auth";
-        public static final String Login = "login";
-        public static final String Signup = "signup";
+        public static final String LOGIN = "login";
+        public static final String SIGNUP = "signup";
         public static final String FORGOT_PASSWORD = "forgot-password";
         public static final String RESET_PASSWORD = "reset-password";
+    }
+
+    /**
+     * Admin book routes api
+     */
+    public static final class AdminBook {
+        private AdminBook() {}
+
+        public static final String ADMIN_BOOK = API + V1 + "/admin/books";
+        public static final String BULK = "bulk";
+    }
+
+    /**
+     * User book routes api
+     */
+    public static final class User {
+        private User() {}
+
+        public static final String BASE_USER = API + V1;
+        public static final String PROFILE = "user/profile";
+        public static final String USERS = "admin/users";
     }
 }

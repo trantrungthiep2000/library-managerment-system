@@ -13,8 +13,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 /**
  * Information about book controller.
  */
@@ -23,28 +21,6 @@ import java.util.List;
 @RequestMapping(ApiRoutesConstant.Book.BOOKS)
 public class BookController {
     private final BookService bookService;
-
-    /**
-     * Create a book.
-     * @param requestDTO BookRequestDTO.
-     * @return BookDTO.
-     */
-    @PostMapping()
-    public ResponseEntity<ApiSuccessResponseDTO<BookDTO>> createBook(@Valid @RequestBody BookRequestDTO requestDTO) {
-        var result = bookService.createBook(requestDTO);
-        return ResponseEntity.ok(result);
-    }
-
-    /**
-     * Create many books bulk.
-     * @param requestDTOS List<BookRequestDTO>.
-     * @return List<BookDTO>.
-     */
-    @PostMapping(ApiRoutesConstant.Book.BULK)
-    public ResponseEntity<ApiSuccessResponseDTO<List<BookDTO>>> createBooksBulk(@Valid @RequestBody List<BookRequestDTO> requestDTOS) {
-        var result = bookService.createBooksBulk(requestDTOS);
-        return ResponseEntity.ok(result);
-    }
 
     /**
      * Get book by id.
