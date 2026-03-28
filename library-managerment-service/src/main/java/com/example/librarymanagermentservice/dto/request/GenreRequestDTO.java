@@ -1,5 +1,6 @@
 package com.example.librarymanagermentservice.dto.request;
 
+import com.example.librarymanagermentservice.common.Constant;
 import com.example.librarymanagermentservice.common.message.GenreMessageError;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -22,7 +23,7 @@ public class GenreRequestDTO {
     private String description;
 
     @Min(value = 0, message = GenreMessageError.DISPLAY_ORDER_NOT_NEGATIVE)
-    private Integer displayOrder = 0;
+    private Integer displayOrder = Constant.DEFAULT_DISPLAY_ORDER;
 
     private Long parentGenreId;
 }
