@@ -1,5 +1,6 @@
 package com.example.librarymanagermentservice.model;
 
+import com.example.librarymanagermentservice.common.Constant;
 import com.example.librarymanagermentservice.common.message.GenreMessageError;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -33,7 +34,7 @@ public class Genre extends BaseModel {
     private String description;
 
     @Min(value = 0, message = GenreMessageError.DISPLAY_ORDER_NOT_NEGATIVE)
-    private Integer displayOrder = 0;
+    private Integer displayOrder = Constant.DEFAULT_DISPLAY_ORDER;
 
     @ManyToOne
     private Genre parentGenre;

@@ -72,4 +72,15 @@ public final class ApiRoutesConstant {
         public static final String PROFILE = "user/profile";
         public static final String USERS = "admin/users";
     }
+
+    /**
+     * Subscription plan routes api
+     */
+    public static final class SubscriptionPlan {
+        private SubscriptionPlan() {}
+
+        public static final String SubscriptionPlans = API + V1 + "/subscrition-plans";
+        public static final String ID = "{id}";
+        public static final String HARD_DELETE = "{id}/hard";
+    }
 }
