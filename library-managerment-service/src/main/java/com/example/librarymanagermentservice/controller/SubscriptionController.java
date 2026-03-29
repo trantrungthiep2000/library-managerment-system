@@ -70,7 +70,7 @@ public class SubscriptionController {
      * @param pageable Pageable.
      * @return List<SubscriptionDTO>.
      */
-    @GetMapping()
+    @GetMapping(ApiRoutesConstant.ADMIN)
     public ResponseEntity<ApiSuccessResponseDTO<List<SubscriptionDTO>>> getAllSubscriptions(Pageable pageable) {
         var result = subscriptionService.getAllSubscriptions(pageable);
         return ResponseEntity.ok(result);

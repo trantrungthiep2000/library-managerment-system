@@ -8,6 +8,7 @@ public final class ApiRoutesConstant {
 
     public static final String API = "/api";
     public static final String V1 = "/v1";
+    public static final String ADMIN = "admin";
 
     /**
      * Genre routes api
@@ -97,6 +98,6 @@ public final class ApiRoutesConstant {
         public static final String ACTIVE_SUBSCRIPTIONS_USER = "user/active-subscriptions";
         public static final String CANCEL_SUBSCRIPTION = "{id}/cancel-subscription";
         public static final String ACTIVE_SUBSCRIPTION = "active-subscription";
-        public static final String DEACTIVATE_EXPIRED = "deactivate-expired";
+        public static final String DEACTIVATE_EXPIRED = "admin/deactivate-expired";
     }
 }

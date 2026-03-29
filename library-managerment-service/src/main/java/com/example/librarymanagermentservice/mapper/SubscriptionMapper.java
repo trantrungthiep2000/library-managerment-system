@@ -75,6 +75,7 @@ public class SubscriptionMapper {
                 .notes(requestDTO.getNotes())
                 .build();
         subscription.initializeFromPlan();
+        subscription.setActive(false);
 
         return subscription;
     }
