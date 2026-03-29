@@ -1,7 +1,7 @@
 package com.example.librarymanagermentservice.dto.request;
 
 import com.example.librarymanagermentservice.common.message.SubscriptionMessageError;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,9 +11,9 @@ import lombok.Data;
 @Data
 @Builder
 public class ActiveSubscriptionRequestDTO {
-    @NotBlank(message = SubscriptionMessageError.SUBSCRIPTION_ID_IS_REQUIRED)
+    @NotNull(message = SubscriptionMessageError.SUBSCRIPTION_ID_IS_REQUIRED)
     private Long subscriptionId;
 
-    @NotBlank(message = SubscriptionMessageError.PAYMENT_ID_IS_REQUIRED)
+    @NotNull(message = SubscriptionMessageError.PAYMENT_ID_IS_REQUIRED)
     private Long paymentId;
 }

@@ -5,6 +5,7 @@ import com.example.librarymanagermentservice.dto.request.SubscriptionRequestDTO;
 import com.example.librarymanagermentservice.model.Subscription;
 import com.example.librarymanagermentservice.model.SubscriptionPlan;
 import com.example.librarymanagermentservice.model.User;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 /**
  * Information about subscription mapper.
  */
+@Component
 public class SubscriptionMapper {
     /**
      * Mapper to DTO.
@@ -41,11 +43,13 @@ public class SubscriptionMapper {
         subscriptionDTO.setIsExpired(subscription.isExpired());
 
         if (subscription.getUser() != null) {
+            subscriptionDTO.setUserId(subscription.getUser().getId());
             subscriptionDTO.setUserName(subscription.getUser().getFullName());
             subscriptionDTO.setUserEmail(subscription.getUser().getEmail());
         }
 
         if (subscription.getPlan() != null) {
+            subscriptionDTO.setPlanId(subscription.getPlan().getId());
             subscriptionDTO.setCurrency(subscription.getPlan().getCurrency());
         }
 

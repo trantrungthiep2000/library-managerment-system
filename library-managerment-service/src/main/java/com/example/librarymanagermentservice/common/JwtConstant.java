@@ -7,7 +7,7 @@ public final class JwtConstant {
     private JwtConstant() {}
 
     public static final Integer BEGIN_INDEX = 7;
-    public static final Long EXPIRATION_TIME = 5 * 60 * 1000L;
+    public static final Long EXPIRATION_TIME = 1440 * 60 * 1000L;
     public static final String AUTHORIZATION = "Authorization";
     public static final String AUTHORITIES = "authorities";
     public static final String EMAIL = "email";
