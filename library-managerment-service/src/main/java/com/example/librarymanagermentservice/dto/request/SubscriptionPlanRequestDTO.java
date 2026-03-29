@@ -52,6 +52,4 @@ public class SubscriptionPlanRequestDTO {
     private String adminNotes;
     private Double priceInMajorUnits;
     private Double monthlyEquivalentPrice;
-    private String createdBy;
-    private String updatedBy;
 }

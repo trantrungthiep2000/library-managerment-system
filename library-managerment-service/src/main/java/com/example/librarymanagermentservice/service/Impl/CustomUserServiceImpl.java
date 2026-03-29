@@ -1,13 +1,13 @@
 package com.example.librarymanagermentservice.service.Impl;
 
 import com.example.librarymanagermentservice.common.message.UserMessageError;
+import com.example.librarymanagermentservice.exception.BadRequestException;
 import com.example.librarymanagermentservice.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.example.librarymanagermentservice.model.User;
 
@@ -32,7 +32,7 @@ public class CustomUserServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String userName) {
         User user = userRepository.findByEmail(userName).orElse(null);
         if (user == null) {
-            throw new UsernameNotFoundException(UserMessageError.USER_NOT_FOUND);
+            throw new BadRequestException(UserMessageError.ACCOUNT_INVALID_CREDENTIALS);
         }
 
         GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().toString());
