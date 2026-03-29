@@ -64,8 +64,6 @@ public class SubscriptionPlanMapper {
                 .isFeatured(requestDTO.getIsFeatured())
                 .badgeText(requestDTO.getBadgeText())
                 .adminNotes(requestDTO.getAdminNotes())
-                .createdBy(requestDTO.getCreatedBy())
-                .updatedBy(requestDTO.getUpdatedBy())
                 .build();
     }
 
@@ -87,8 +85,6 @@ public class SubscriptionPlanMapper {
         subscriptionPlan.setIsFeatured(requestDTO.getIsFeatured());
         subscriptionPlan.setBadgeText(requestDTO.getBadgeText());
         subscriptionPlan.setAdminNotes(requestDTO.getAdminNotes());
-        subscriptionPlan.setCreatedBy(requestDTO.getCreatedBy());
-        subscriptionPlan.setUpdatedBy(requestDTO.getUpdatedBy());
     }
 
     /**

@@ -8,6 +8,7 @@ public final class ApiRoutesConstant {
 
     public static final String API = "/api";
     public static final String V1 = "/v1";
+    public static final String ADMIN = "admin";
 
     /**
      * Genre routes api
@@ -79,8 +80,24 @@ public final class ApiRoutesConstant {
     public static final class SubscriptionPlan {
         private SubscriptionPlan() {}
 
-        public static final String SubscriptionPlans = API + V1 + "/subscrition-plans";
+        public static final String SUBSCRIPTION_PLANS = API + V1 + "/subscription-plans";
         public static final String ID = "{id}";
-        public static final String HARD_DELETE = "{id}/hard";
+        public static final String ADMIN_HARD_DELETE = "admin/{id}/hard";
+        public static final String ADMIN = "admin";
+        public static final String ADMIN_ID = "admin/{id}";
+    }
+
+    /**
+     * Subscription routes api
+     */
+    public static final class Subscription {
+        private Subscription() {}
+
+        public static final String SUBSCRIPTIONS = API + V1 + "/subscriptions";
+        public static final String SUBSCRIBE = "subscribe";
+        public static final String ACTIVE_SUBSCRIPTIONS_USER = "user/active-subscriptions";
+        public static final String CANCEL_SUBSCRIPTION = "{id}/cancel-subscription";
+        public static final String ACTIVE_SUBSCRIPTION = "active-subscription";
+        public static final String DEACTIVATE_EXPIRED = "admin/deactivate-expired";
     }
 }

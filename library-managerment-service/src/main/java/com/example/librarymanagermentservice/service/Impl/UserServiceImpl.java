@@ -7,9 +7,9 @@ import com.example.librarymanagermentservice.exception.NotFoundException;
 import com.example.librarymanagermentservice.mapper.UserMapper;
 import com.example.librarymanagermentservice.model.User;
 import com.example.librarymanagermentservice.repository.UserRepository;
+import com.example.librarymanagermentservice.service.SecurityContextService;
 import com.example.librarymanagermentservice.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,6 +22,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
+    private final SecurityContextService securityContextService;
 
     /**
      * Get current user.
@@ -29,9 +30,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public ApiSuccessResponseDTO<UserDTO> getCurrentUser() {
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User user = userRepository.findByEmail(email).orElse(null);
-
+        User user = securityContextService.getCurrentUser().orElse(null);
         if (user == null) {
             throw new NotFoundException(UserMessageError.USER_NOT_FOUND);
         }

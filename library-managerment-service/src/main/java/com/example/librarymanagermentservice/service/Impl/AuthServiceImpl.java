@@ -54,8 +54,6 @@ public class AuthServiceImpl implements AuthService {
     public ApiSuccessResponseDTO<AuthResponseDTO> login(LoginRequestDTO requestDTO) {
         Authentication authentication = authenticate(requestDTO.getEmail(), requestDTO.getPassword());
         SecurityContextHolder.getContext().setAuthentication(authentication);
-//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-//        String role = authorities.iterator().next().getAuthority();
         String token = jwtProvider.generateToken(authentication);
 
         User user = userRepository.findByEmail(requestDTO.getEmail()).orElse(null);

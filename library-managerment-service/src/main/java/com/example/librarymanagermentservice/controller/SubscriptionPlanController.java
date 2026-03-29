@@ -17,7 +17,7 @@ import java.util.List;
  */
 @RestController
 @AllArgsConstructor
-@RequestMapping(ApiRoutesConstant.SubscriptionPlan.SubscriptionPlans)
+@RequestMapping(ApiRoutesConstant.SubscriptionPlan.SUBSCRIPTION_PLANS)
 public class SubscriptionPlanController {
     private final SubscriptionPlanService subscriptionPlanService;
 
@@ -47,7 +47,7 @@ public class SubscriptionPlanController {
      * @param requestDTO SubscriptionPlanRequestDTO.
      * @return SubscriptionPlanDTO.
      */
-    @PostMapping()
+    @PostMapping(ApiRoutesConstant.SubscriptionPlan.ADMIN)
     public ResponseEntity<ApiSuccessResponseDTO<SubscriptionPlanDTO>> createSubscriptionPlan(@Valid @RequestBody SubscriptionPlanRequestDTO requestDTO) {
         var result = subscriptionPlanService.createSubscriptionPlan(requestDTO);
         return ResponseEntity.ok(result);
@@ -59,7 +59,7 @@ public class SubscriptionPlanController {
      * @param requestDTO SubscriptionPlanRequestDTO.
      * @return SubscriptionPlanDTO.
      */
-    @PutMapping(ApiRoutesConstant.SubscriptionPlan.ID)
+    @PutMapping(ApiRoutesConstant.SubscriptionPlan.ADMIN_ID)
     public ResponseEntity<ApiSuccessResponseDTO<SubscriptionPlanDTO>> updateSubscriptionPlan(@PathVariable Long id, @Valid @RequestBody SubscriptionPlanRequestDTO requestDTO) {
         var result = subscriptionPlanService.updateSubscriptionPlan(id, requestDTO);
         return ResponseEntity.ok(result);
@@ -70,7 +70,7 @@ public class SubscriptionPlanController {
      * @param id Long.
      * @return SubscriptionPlanDTO.
      */
-    @DeleteMapping(ApiRoutesConstant.SubscriptionPlan.ID)
+    @DeleteMapping(ApiRoutesConstant.SubscriptionPlan.ADMIN_ID)
     public ResponseEntity<ApiSuccessResponseDTO<SubscriptionPlanDTO>> deleteSubscriptionPlan(@PathVariable Long id) {
         var result = subscriptionPlanService.deleteSubscriptionPlan(id);
         return ResponseEntity.ok(result);
@@ -81,7 +81,7 @@ public class SubscriptionPlanController {
      * @param id Long.
      * @return SubscriptionPlanDTO.
      */
-    @DeleteMapping(ApiRoutesConstant.SubscriptionPlan.HARD_DELETE)
+    @DeleteMapping(ApiRoutesConstant.SubscriptionPlan.ADMIN_HARD_DELETE)
     public ResponseEntity<ApiSuccessResponseDTO<SubscriptionPlanDTO>> hardDeleteSubscriptionPlan(@PathVariable Long id) {
         var result = subscriptionPlanService.hardDeleteSubscriptionPlan(id);
         return ResponseEntity.ok(result);
