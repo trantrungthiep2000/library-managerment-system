@@ -3,6 +3,7 @@ package com.example.librarymanagermentservice.service;
 import com.example.librarymanagermentservice.dto.SubscriptionDTO;
 import com.example.librarymanagermentservice.dto.request.SubscriptionRequestDTO;
 import com.example.librarymanagermentservice.dto.response.ApiSuccessResponseDTO;
+import com.example.librarymanagermentservice.dto.response.PaymentInitiateResponseDTO;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
@@ -14,9 +15,9 @@ public interface SubscriptionService {
     /**
      * Subscribe.
      * @param requestDTO SubscriptionRequestDTO.
-     * @return SubscriptionDTO.
+     * @return PaymentInitiateResponseDTO.
      */
-    ApiSuccessResponseDTO<SubscriptionDTO> subscribe(SubscriptionRequestDTO requestDTO);
+    ApiSuccessResponseDTO<PaymentInitiateResponseDTO> subscribe(SubscriptionRequestDTO requestDTO);
 
     /**
      * Get user active subscriptions.
