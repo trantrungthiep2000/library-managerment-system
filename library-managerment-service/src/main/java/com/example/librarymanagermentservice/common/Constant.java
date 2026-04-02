@@ -20,4 +20,6 @@ public final class Constant {
     public static final Integer DEFAULT_DISPLAY_ORDER = 0;
     public static final String CURRENCY = "IRN";
     public static final int MAX_LENGTH_PLAN_NAME = 100;
+    public static final String TXN = "TXN_";
+
 }
