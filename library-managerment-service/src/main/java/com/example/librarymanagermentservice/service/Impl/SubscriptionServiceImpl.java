@@ -1,11 +1,15 @@
 package com.example.librarymanagermentservice.service.Impl;
 
+import com.example.librarymanagermentservice.common.enums.PaymentGatewayEnum;
+import com.example.librarymanagermentservice.common.enums.PaymentTypeEnum;
 import com.example.librarymanagermentservice.common.message.SubscriptionMessageError;
 import com.example.librarymanagermentservice.common.message.SubscriptionPlanMessageError;
 import com.example.librarymanagermentservice.common.message.UserMessageError;
 import com.example.librarymanagermentservice.dto.SubscriptionDTO;
+import com.example.librarymanagermentservice.dto.request.PaymentInitiateRequestDTO;
 import com.example.librarymanagermentservice.dto.request.SubscriptionRequestDTO;
 import com.example.librarymanagermentservice.dto.response.ApiSuccessResponseDTO;
+import com.example.librarymanagermentservice.dto.response.PaymentInitiateResponseDTO;
 import com.example.librarymanagermentservice.exception.NotFoundException;
 import com.example.librarymanagermentservice.mapper.SubscriptionMapper;
 import com.example.librarymanagermentservice.model.Subscription;
@@ -13,7 +17,7 @@ import com.example.librarymanagermentservice.model.SubscriptionPlan;
 import com.example.librarymanagermentservice.model.User;
 import com.example.librarymanagermentservice.repository.SubscriptionPlanRepository;
 import com.example.librarymanagermentservice.repository.SubscriptionRepository;
-import com.example.librarymanagermentservice.service.SecurityContextService;
+import com.example.librarymanagermentservice.service.PaymentService;
 import com.example.librarymanagermentservice.service.SubscriptionService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,14 +39,16 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     private final SubscriptionPlanRepository subscriptionPlanRepository;
     private final SubscriptionMapper subscriptionMapper;
     private final SecurityContextService securityContextService;
+    private final PaymentService paymentService;
 
     /**
      * Subscribe.
      * @param requestDTO SubscriptionRequestDTO.
-     * @return SubscriptionDTO.
+     * @return PaymentInitiateResponseDTO.
      */
     @Override
-    public ApiSuccessResponseDTO<SubscriptionDTO> subscribe(SubscriptionRequestDTO requestDTO) {
+    @Transactional
+    public ApiSuccessResponseDTO<PaymentInitiateResponseDTO> subscribe(SubscriptionRequestDTO requestDTO) {
         User user = securityContextService.getCurrentUser().orElse(null);
         if (user == null) {
             throw new NotFoundException(UserMessageError.USER_NOT_FOUND);
@@ -56,8 +62,17 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
         Subscription subscription = subscriptionMapper.toEntity(requestDTO, user, subscriptionPlan);
         Subscription subscriptionCreate = subscriptionRepository.save(subscription);
-        SubscriptionDTO subscriptionDTO = subscriptionMapper.toDTO(subscriptionCreate);
-        return new ApiSuccessResponseDTO<>(subscriptionDTO);
+
+        PaymentInitiateRequestDTO initiateRequestDTO = PaymentInitiateRequestDTO.builder()
+                .userId(user.getId())
+                .subscriptionId(subscriptionCreate.getId())
+                .paymentType(PaymentTypeEnum.MEMBERSHIP)
+                .paymentGateway(PaymentGatewayEnum.RAZORPAY)
+                .amount(subscriptionCreate.getPrice())
+                .description("Library Subscription - " + subscriptionCreate.getPlanName())
+                .build();
+
+        return paymentService.initiatePayment(initiateRequestDTO);
     }
 
     /**

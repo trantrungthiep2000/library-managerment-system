@@ -96,7 +96,6 @@ public class Subscription extends BaseModel {
         }
     }
 
-
     /**
      * Initialize from plan.
      */

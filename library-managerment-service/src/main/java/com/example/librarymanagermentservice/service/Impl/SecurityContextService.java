@@ -1,4 +1,4 @@
-package com.example.librarymanagermentservice.service;
+package com.example.librarymanagermentservice.service.Impl;
 
 import com.example.librarymanagermentservice.model.User;
 import com.example.librarymanagermentservice.repository.UserRepository;

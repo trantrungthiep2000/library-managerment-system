@@ -6,6 +6,7 @@ import com.example.librarymanagermentservice.dto.request.ActiveSubscriptionReque
 import com.example.librarymanagermentservice.dto.request.CancelSubscriptionRequestDTO;
 import com.example.librarymanagermentservice.dto.request.SubscriptionRequestDTO;
 import com.example.librarymanagermentservice.dto.response.ApiSuccessResponseDTO;
+import com.example.librarymanagermentservice.dto.response.PaymentInitiateResponseDTO;
 import com.example.librarymanagermentservice.service.SubscriptionService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -24,10 +25,10 @@ public class SubscriptionController {
     /**
      * Subscribe.
      * @param requestDTO SubscriptionRequestDTO.
-     * @return SubscriptionDTO.
+     * @return PaymentInitiateResponseDTO.
      */
     @PostMapping(ApiRoutesConstant.Subscription.SUBSCRIBE)
-    public ResponseEntity<ApiSuccessResponseDTO<SubscriptionDTO>> subscribe(@Valid @RequestBody SubscriptionRequestDTO requestDTO) {
+    public ResponseEntity<ApiSuccessResponseDTO<PaymentInitiateResponseDTO>> subscribe(@Valid @RequestBody SubscriptionRequestDTO requestDTO) {
         var result = subscriptionService.subscribe(requestDTO);
         return ResponseEntity.ok(result);
     }

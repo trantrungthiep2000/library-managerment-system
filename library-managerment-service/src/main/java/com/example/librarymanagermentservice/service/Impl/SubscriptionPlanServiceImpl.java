@@ -11,7 +11,6 @@ import com.example.librarymanagermentservice.mapper.SubscriptionPlanMapper;
 import com.example.librarymanagermentservice.model.SubscriptionPlan;
 import com.example.librarymanagermentservice.model.User;
 import com.example.librarymanagermentservice.repository.SubscriptionPlanRepository;
-import com.example.librarymanagermentservice.service.SecurityContextService;
 import com.example.librarymanagermentservice.service.SubscriptionPlanService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -7,7 +7,6 @@ import com.example.librarymanagermentservice.exception.NotFoundException;
 import com.example.librarymanagermentservice.mapper.UserMapper;
 import com.example.librarymanagermentservice.model.User;
 import com.example.librarymanagermentservice.repository.UserRepository;
-import com.example.librarymanagermentservice.service.SecurityContextService;
 import com.example.librarymanagermentservice.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
