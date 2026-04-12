@@ -39,8 +39,6 @@ public class PaymentController {
      */
     @GetMapping()
     public ResponseEntity<ApiSuccessResponseDTO<Page<PaymentDTO>>> getAllPayments(@Valid @RequestBody Pageable pageable) {
-
-
         var result = paymentService.getAllPayments(pageable);
         return ResponseEntity.ok(result);
     }
