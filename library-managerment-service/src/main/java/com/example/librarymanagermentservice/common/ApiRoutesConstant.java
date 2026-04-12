@@ -100,4 +100,14 @@ public final class ApiRoutesConstant {
         public static final String ACTIVE_SUBSCRIPTION = "active-subscription";
         public static final String DEACTIVATE_EXPIRED = "admin/deactivate-expired";
     }
+
+    /**
+     * Payment routes api
+     */
+    public static final class Payment {
+        private Payment() {}
+
+        public static final String PAYMENTS = API + V1 + "/Payments";
+        public static final String VERIFY = "verify";
+    }
 }
